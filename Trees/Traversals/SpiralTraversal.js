@@ -45,7 +45,6 @@ class bst {
 
   bfs() {
     if (!this.root) return undefined;
-    let data = [];
     let queue = [];
     let newMap = new Map();
 
@@ -55,7 +54,6 @@ class bst {
 
     while (queue.length > 0) {
       let node = queue.shift();
-      data.push([node[0].value, node[1]]);
 
       if (node[0].left) {
         queue.push([node[0].left, node[1] + 1]);
