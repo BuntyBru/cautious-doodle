@@ -69,6 +69,31 @@ class bst {
     traverse(this.root);
     return data;
   }
+
+  dfsPostOrder() {
+    if (!this.root) return undefined;
+    let data = [];
+    function traverse(node) {
+      if (node.left) traverse(node.left);
+      if (node.right) traverse(node.right);
+      data.push(node.value);
+    }
+
+    traverse(this.root);
+    return data;
+  }
+
+  dfsInOrder() {
+    if (!this.root) return undefined;
+    let data = [];
+    function traverse(node) {
+      if (node.left) traverse(node.left);
+      data.push(node.value);
+      if (node.right) traverse(node.right);
+    }
+    traverse(this.root);
+    return data;
+  }
 }
 
 let tree = new bst();
@@ -85,4 +110,15 @@ console.log(
   "3rd element in DFS Preorder",
   tree.dfsPreOrder(),
   tree.dfsPreOrder()[2]
+);
+console.log(
+  "3rd element in DFS Postorder",
+  tree.dfsPostOrder(),
+  tree.dfsPostOrder()[2]
+);
+
+console.log(
+  "3rd element in DFS Inorder",
+  tree.dfsInOrder(),
+  tree.dfsInOrder()[2]
 );
